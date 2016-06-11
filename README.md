@@ -18,9 +18,14 @@ The table shows the frameworks and other components used to set up the pilot.
 |Apache Flink|[bde2020/flink-master](https://hub.docker.com/r/bde2020/docker-kafka/) <br> [bde2020/flink-worker](https://hub.docker.com/r/bde2020/flink-worker/) <br> [bde2020/flink-submit](https://hub.docker.com/r/bde2020/flink-worker/)|
 |Elasticsearch|NA|
 |Rserve + MapMatching Algorithm|Dockerfile in [pilot-sc4-docker-r](https://github.com/big-data-europe/pilot-sc4-docker-r)|
-|FCD Flink Job|Dockrized version of [pilot-sc4-flink-kafka-consumer](https://github.com/big-data-europe/pilot-sc4-flink-kafka-consumer) (TBD)|
+|FCD Flink Job|Dockerized version of [pilot-sc4-flink-kafka-consumer](https://github.com/big-data-europe/pilot-sc4-flink-kafka-consumer) (TBD)|
 |Kibana|NA|
 
+All the components, frameworks, Flink jobs, Kafka producer, Rserve, must be provided as Docker images in order to be 
+started in Docker containers within a Docker Swarm. Furthermore, all the Docker images must support the initialization
+daemon by including the wait-for-step.sh, execute-step.sh, finish-step.sh scripts provided in the [docker-spark](https://github.com/big-data-europe/docker-spark/tree/master/base) base 
+image
+ 
 ## Pilot Initialization
 Some of the components used for the pilot depend on other components. As an example, the Kafka producer depends on 
 the availability of a Kafka topic, the Flink job depends on the availability of the Rserve for the map matching and 
