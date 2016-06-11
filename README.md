@@ -43,8 +43,8 @@ The steps to start the pilot are
 3. Create a Kafka topic
 4. Start the FCD Kafka producer
 5. Set up Flink 
-6. Start Rserve
-7. Start Elasticsearch
+6. Start Rserve with the MapMatching algorithm
+7. Set up Elasticsearch with the FCD schema
 8. Start the FCD Flink job
 9. Start Kibana  
 
