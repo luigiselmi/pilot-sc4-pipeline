@@ -1,23 +1,36 @@
 @prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ns1:	<http://purl.org/spar/pwo/> .
-<http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	rdf:type	ns1:Workflow .
 @prefix ns2:	<http://mu.semte.ch/vocabularies/core/> .
-<http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	ns2:uuid	"575C26642B8AAC0007000001" .
 @prefix ns3:	<http://purl.org/dc/terms/> .
+@prefix ns4:	<http://www.big-data-europe.eu/vocabularies/pipeline/> .
+
+#-----------------------------------------------------------------------------------------------------
+#                                   SC4 Pilot Initialization Workflow
+#-----------------------------------------------------------------------------------------------------
+<http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	rdf:type	ns1:Workflow .
+<http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	ns2:uuid	"575C26642B8AAC0007000001" .
 <http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	ns3:title	"SC4 Pilot Start up " ;
 	ns3:description	"This pipeline defines the initialization step for the SC4 pilot" ;
 	ns1:hasStep	<http://www.big-data-europe.eu/data/steps/575C28872B8AAC0007000005> ,
 		<http://www.big-data-europe.eu/data/steps/575C27E92B8AAC0007000004> ,
 		<http://www.big-data-europe.eu/data/steps/575C26B52B8AAC0007000002> ,
 		<http://www.big-data-europe.eu/data/steps/575C278D2B8AAC0007000003> .
+
+#-----------------------------------------------------------------------------------------------------
+#                                   Step 1. Start Zookeeper
+#-----------------------------------------------------------------------------------------------------                                   
+
 <http://www.big-data-europe.eu/data/steps/575C26B52B8AAC0007000002>	rdf:type	ns1:Step ;
 	ns2:uuid	"575C26B52B8AAC0007000002" ;
 	ns3:title	"Start Zookeeper" ;
-	ns3:description	"Kafka requires Zookeeper" .
-@prefix ns4:	<http://www.big-data-europe.eu/vocabularies/pipeline/> .
-<http://www.big-data-europe.eu/data/steps/575C26B52B8AAC0007000002>	ns4:code	"start_zookeeper" ;
+	ns3:description	"Kafka requires Zookeeper" ;
+        ns4:code	"start_zookeeper" ;
 	ns4:order	0 ;
 	ns4:status	"not_started" .
+
+#-----------------------------------------------------------------------------------------------------
+#                                   Step 2. Start a Kafka Broker
+#-----------------------------------------------------------------------------------------------------
 <http://www.big-data-europe.eu/data/steps/575C278D2B8AAC0007000003>	rdf:type	ns1:Step ;
 	ns2:uuid	"575C278D2B8AAC0007000003" ;
 	ns3:title	"Start a Kafka broker" ;
@@ -25,6 +38,11 @@
 	ns4:code	"start_kafka_broker" ;
 	ns4:order	1 ;
 	ns4:status	"not_started" .
+
+#-----------------------------------------------------------------------------------------------------
+#                                   Step 3. Create a Kafka topic
+#-----------------------------------------------------------------------------------------------------
+
 <http://www.big-data-europe.eu/data/steps/575C27E92B8AAC0007000004>	rdf:type	ns1:Step ;
 	ns2:uuid	"575C27E92B8AAC0007000004" ;
 	ns3:title	"Create a Kafka topic" ;
@@ -32,6 +50,11 @@
 	ns4:code	"create_kafka_topic" ;
 	ns4:order	2 ;
 	ns4:status	"not_started" .
+
+#-----------------------------------------------------------------------------------------------------
+#                                   Step 4. Start the FCD Kafka producer
+#-----------------------------------------------------------------------------------------------------
+
 <http://www.big-data-europe.eu/data/steps/575C28872B8AAC0007000005>	rdf:type	ns1:Step ;
 	ns2:uuid	"575C28872B8AAC0007000005" ;
 	ns3:title	"Start the FCD Kafka producer" ;
