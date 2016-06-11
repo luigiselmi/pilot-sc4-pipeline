@@ -21,7 +21,7 @@ The table shows the frameworks and other components used to set up the pilot.
 |FCD Flink Job|Dockerized version of [pilot-sc4-flink-kafka-consumer](https://github.com/big-data-europe/pilot-sc4-flink-kafka-consumer) (TBD)|
 |Kibana|NA|
 
-All the components, frameworks, Flink jobs, Kafka producer, Rserve, must be provided as Docker images in order to be 
+All the components, frameworks, Flink job, Kafka producer, Rserve, must be provided as Docker images in order to be 
 started in Docker containers within a Docker Swarm. Furthermore, all the Docker images must support the initialization
 daemon by including the wait-for-step.sh, execute-step.sh, finish-step.sh scripts provided in the [docker-spark](https://github.com/big-data-europe/docker-spark/tree/master/base) base 
 image
@@ -35,6 +35,11 @@ The init daemon is already included in the docker-compose.yml file used for the 
 information about the order in which the components have to be started. This information must be provided as an RDF 
 file that can be created using the [Pipeline Builder](https://github.com/big-data-europe/app-pipeline-builder). The
 RDF file must be included in the project as it will be imported by the initialization daemon.  
+
+## Configuration of the Dashboards Integrator UI
+The Integrator UI shows all the existing component dashboards in a unified interface. For each dashboard a menu item is 
+shown in the navigation bar at the top. The BDE CSS style will be applied automatically on the dashboards. The configuration 
+of the Integrator UI is done through a JSON file.
 
 ## Running the pilot
 ```
