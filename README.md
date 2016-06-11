@@ -15,7 +15,7 @@ The table shows the frameworks and other components used to set up the pilot.
 |FCD Flink Job|Dockrized version of [pilot-sc4-flink-kafka-consumer](https://github.com/big-data-europe/pilot-sc4-flink-kafka-consumer) (TBD)|
 |Kibana|NA|
 
-## Running the application
+## Running the pilot
 ```
 git clone https://github.com/big-data-europe/pilot-sc4-pipeline.git
 cd pilot-sc4-pipeline
