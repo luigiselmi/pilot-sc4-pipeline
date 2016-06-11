@@ -3,10 +3,10 @@
 Bootstrap the pipeline for the SC4 pilot on the BDE platform.
 
 ## Pilot Description
-The pilot fetches continuously data about taxies in Thessaloniki from CERTH web service. A Kafka Producer connects 
-to the web service and sends the data into a Kafka topic. The data is consumed by a Flink job, enriched using a map
-matching algorithm and aggregated and finally stored into Elasticsearch. A visualization based on Kibana is used to 
-visualize the aggregated data in a map (average speed in road segments per time windows).
+The pilot fetches continuously the FCD data (Floating Car Data)  about taxies in Thessaloniki from CERTH web service. 
+A Kafka Producer connects to the web service and sends the data into a Kafka topic. The data is consumed by a Flink job, 
+enriched using a map matching algorithm and aggregated and finally stored into Elasticsearch. A visualization based on 
+Kibana is used to visualize the aggregated data in a map (average speed in road segments per time windows).
   
 ## Pilot Components
 The table shows the frameworks and other components used to set up the pilot.
@@ -34,7 +34,19 @@ on Elasticsearch for the storage. Kafka itself depends on Zookeeper. The BDE pla
 The init daemon is already included in the docker-compose.yml file used for the pilot. The init daemon requires the 
 information about the order in which the components have to be started. This information must be provided as an RDF 
 file that can be created using the [Pipeline Builder](https://github.com/big-data-europe/app-pipeline-builder). The
-RDF file must be included in the project as it will be imported by the initialization daemon.  
+RDF file must be included in the project as it will be imported by the initialization daemon.
+
+The steps to start the pilot are 
+
+1. Start Zookeeper
+2. Set up Kafka (broker)
+3. Create a Kafka topic
+4. Start the FCD Kafka producer
+5. Set up Flink 
+6. Start Rserve
+7. Start Elasticsearch
+8. Start the FCD Flink job
+9. Start Kibana  
 
 ## Configuration of the Dashboards Integrator UI
 The Integrator UI shows all the existing component dashboards in a unified interface. For each dashboard a menu item is 
