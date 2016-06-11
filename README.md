@@ -5,7 +5,7 @@ Bootstrap the pipeline for the SC4 pilot on the BDE platform.
 ## Pilot Description
 The pilot fetches continuously the FCD data (Floating Car Data)  about taxies in Thessaloniki from CERTH web service. 
 A Kafka Producer connects to the web service and sends the data into a Kafka topic. The data is consumed by a Flink job, 
-enriched using a map matching algorithm and aggregated and finally stored into Elasticsearch. A visualization based on 
+enriched using a map matching algorithm, aggregated and finally stored into Elasticsearch. A visualization based on 
 Kibana is used to visualize the aggregated data in a map (average speed in road segments per time windows).
   
 ## Pilot Components
@@ -23,8 +23,8 @@ The table shows the frameworks and other components used to set up the pilot.
 
 All the components, frameworks, Flink job, Kafka producer, Rserve, must be provided as Docker images in order to be 
 started in Docker containers within a Docker Swarm. Furthermore, all the Docker images must support the initialization
-daemon by including the wait-for-step.sh, execute-step.sh, finish-step.sh scripts provided in the [docker-spark](https://github.com/big-data-europe/docker-spark/tree/master/base) base 
-image
+protocol by including the wait-for-step.sh, execute-step.sh, finish-step.sh scripts provided in the [docker-spark](https://github.com/big-data-europe/docker-spark/tree/master/base) base 
+image in order to communicate with the initialization daemon.
  
 ## Pilot Initialization
 Some of the components used for the pilot depend on other components. As an example, the Kafka producer depends on 
