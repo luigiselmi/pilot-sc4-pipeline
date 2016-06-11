@@ -10,7 +10,7 @@
 <http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	rdf:type	ns1:Workflow .
 <http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	ns2:uuid	"575C26642B8AAC0007000001" .
 <http://www.big-data-europe.eu/data/workflows/575C26642B8AAC0007000001>	ns3:title	"SC4 Pilot Start up " ;
-	ns3:description	"This pipeline defines the initialization step for the SC4 pilot" ;
+	ns3:description	"This pipeline defines the initialization steps for the SC4 pilot" ;
 	ns1:hasStep	<http://www.big-data-europe.eu/data/steps/575C28872B8AAC0007000005> ,
 		<http://www.big-data-europe.eu/data/steps/575C27E92B8AAC0007000004> ,
 		<http://www.big-data-europe.eu/data/steps/575C26B52B8AAC0007000002> ,
